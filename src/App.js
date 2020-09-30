@@ -1,5 +1,7 @@
 import React from "react";
 
-export default function App() {
+function App() {
   return <p>How you doin'?</p>;
 }
+
+export default App;
