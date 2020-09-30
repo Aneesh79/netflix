@@ -38,7 +38,7 @@ export const Title = styled.h1`
   }
 `;
 
-export const Subtitle = styled.h2`
+export const SubTitle = styled.h2`
   font-size: 22px;
   font-weight: normal;
 
