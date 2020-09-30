@@ -7,13 +7,13 @@ function App() {
     <Jumbotron.Container>
       {jumboData.map((item) => (
         <Jumbotron key={item.id} direction={item.direction}>
-          <Jumbotron.Placeholder>
+          <Jumbotron.Pane>
             <Jumbotron.Title>{item.title}</Jumbotron.Title>
             <Jumbotron.Subtitle>{item.subTitle}</Jumbotron.Subtitle>
-          </Jumbotron.Placeholder>
-          <Jumbotron.Placeholder>
+          </Jumbotron.Pane>
+          <Jumbotron.Pane>
             <Jumbotron.Image src={item.image} alt={item.alt} />
-          </Jumbotron.Placeholder>
+          </Jumbotron.Pane>
         </Jumbotron>
       ))}
     </Jumbotron.Container>
