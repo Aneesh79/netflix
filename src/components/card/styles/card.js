@@ -27,10 +27,10 @@ export const Container = styled.div`
 `;
 
 export const Group = styled.div`
-  diaplay: flex;
+  display: flex;
   flex-direction: ${({ flexDirection }) => (flexDirection === "row" ? "row" : "column")};
-  ${({ alignItems }) => alignItems && `align-items: ${alignItems}`}
-  ${({ margin }) => margin && `margin: ${margin}`}
+  ${({ alignItems }) => alignItems && `align-items: ${alignItems}`};
+  ${({ margin }) => margin && `margin: ${margin}`};
 
   > ${Container}:first-of-type {
     @media (min-width: 1100px) {
@@ -51,7 +51,7 @@ export const SubTitle = styled.p`
 
 export const Text = styled.p`
   margin-top: 5px;
-  font-zise: 10px;
+  font-size: 10px;
   color: #fff;
   margin-bottom: 0;
   user-select: none;
@@ -190,7 +190,7 @@ export const Maturity = styled.div`
   background-color: ${({ rating }) => (rating >= 15 ? "red" : "green")};
   border-radius: 15px;
   width: 20px;
-  pading: 5px;
+  padding: 5px;
   text-align: center;
   color: white;
   font-weight: bold;
