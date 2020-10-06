@@ -1,5 +1,6 @@
 import React, { useState, useContext, createContext } from "react";
 import ReactDOM from "react-dom";
+import ReactNetflixPlayer from "react-netflix-player";
 import { Container, Button, Overlay, Inner } from "./styles/player";
 
 export const PlayerContext = createContext();
@@ -14,16 +15,14 @@ export default function Player({ children, ...restProps }) {
   );
 }
 
-Player.Video = function PlayerVideo({ src, ...restProps }) {
+Player.Video = function PlayerVideo({ src, title, subTitle, titleMedia, extraInfoMedia, playerLanguage, backButton, autoPlay, ...restProps }) {
   const { showPlayer, setShowPlayer } = useContext(PlayerContext);
 
   return showPlayer
     ? ReactDOM.createPortal(
-        <Overlay onClick={() => setShowPlayer(false)} {...restProps}>
+        <Overlay {...restProps}>
           <Inner>
-            <video id="netflix-player" controls>
-              <source src={src} type="video/mp4" />
-            </video>
+            <ReactNetflixPlayer primaryColor="#ffffff" src={src} title={title} subTitle={subTitle} titleMedia={titleMedia} extraInfoMedia={extraInfoMedia} playerLanguage={playerLanguage} backButton={backButton} autoPlay={autoPlay} />
           </Inner>
         </Overlay>,
         document.body

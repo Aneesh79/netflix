@@ -93,7 +93,7 @@ export function BrowseContainer({ slides }) {
             <Card.Feature category={category}>
               <Player>
                 <Player.Button />
-                <Player.Video src="/videos/bunny.mp4" />
+                <Player.Video src="/videos/bunny.mp4" title="Bunny" subTitle="S1:E1 Bunny feels alive" titleMedia="Bunny" extraInfoMedia="S1:E1 Bunny feels alive" playerLanguage="en" backButton="true" autoPlay="true" />
               </Player>
             </Card.Feature>
           </Card>
