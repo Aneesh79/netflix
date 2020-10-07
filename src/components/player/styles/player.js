@@ -31,8 +31,19 @@ export const Inner = styled.div`
 
 export const Controls = styled.div`
   position: absolute;
-  /*  bottom: 500px;
-  left: 800px; */
+`;
+
+export const Icon = styled.img`
+  width: 76px;
+  height: 76px;
+  padding: 50px;
+  fill: #cccccc;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
 `;
 
 export const Button = styled.button`

@@ -1,9 +1,17 @@
-import React, { useState, useContext, createContext } from "react";
+import React, { useState, useRef, useContext, createContext } from "react";
 import ReactDOM from "react-dom";
-import { Container, Controls, Button, Overlay, Inner } from "./styles/player";
-import play from "./play.svg";
-import rewind from "./rewind.svg";
-import forward from "./forward.svg";
+import {
+  Container,
+  Controls,
+  Button,
+  Overlay,
+  Inner,
+  Icon,
+} from "./styles/player";
+import Pause from "./pause.svg";
+import Play from "./play.svg";
+import Rewind from "./rewind.svg";
+import Forward from "./forward.svg";
 
 export const PlayerContext = createContext();
 
@@ -19,18 +27,35 @@ export default function Player({ children, ...restProps }) {
 
 Player.Video = function PlayerVideo({ src, ...restProps }) {
   const { showPlayer, setShowPlayer } = useContext(PlayerContext);
+  const [play, setPlay] = useState(true);
+
+  const videoref = useRef(null);
+
+  const videoFunction = () => {
+    if (play) {
+      videoref.current.pause();
+      setPlay(false);
+    } else {
+      videoref.current.play();
+      setPlay(true);
+    }
+  };
 
   return showPlayer
     ? ReactDOM.createPortal(
-        <Overlay onClick={() => setShowPlayer(false)} {...restProps}>
+        <Overlay {...restProps}>
           <Inner>
-            <video id="netflix-player" autoplay="true">
+            <video ref={videoref} id="netflix-player" autoplay="true">
               <source src={src} type="video/mp4" />
             </video>
             <Controls>
-              <img style={{ width: "76px", height: "76px" }} src={rewind} />
-              <img style={{ width: "76px", height: "76px" }} src={play} />
-              <img style={{ width: "76px", height: "76px" }} src={forward} />
+              <Icon src={Rewind} />
+              {play ? (
+                <Icon onClick={() => videoFunction()} src={Pause} />
+              ) : (
+                <Icon onClick={() => videoFunction()} src={Play} />
+              )}
+              <Icon src={Forward} />
             </Controls>
           </Inner>
         </Overlay>,
