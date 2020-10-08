@@ -91,7 +91,7 @@ export function BrowseContainer({ slides }) {
                       <Card.Left>
                         <Player>
                           <Player.PlayIcon src={play} alt="play" />
-                          <Player.Video src="/videos/bunny.mp4" />
+                          <Player.Video src="/videos/batman.mp4" />
                         </Player>
                         <Card.Divide>
                           <Card.Play>Play</Card.Play>
@@ -112,7 +112,7 @@ export function BrowseContainer({ slides }) {
             <Card.Feature category={category}>
               <Player>
                 <Player.Button />
-                <Player.Video src="/videos/bunny.mp4" />
+                <Player.Video src="/videos/batman.mp4" />
               </Player>
             </Card.Feature>
           </Card>
