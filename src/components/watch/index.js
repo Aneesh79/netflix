@@ -1,5 +1,4 @@
 import React, { useState, useRef, createContext } from "react";
-import ReactDOM from "react-dom";
 import { Container, Controls, Overlay, Inner, Icon, NavIcon, VideoNavbar, Button, IconRoute, PlayIcon } from "./styles/watch";
 import Pause from "./icons/pause.svg";
 import Play from "./icons/play.svg";
@@ -61,7 +60,7 @@ Watch.Video = function WatchVideo({ src, ...restProps }) {
     }
   };
 
-  return ReactDOM.createPortal(
+  return (
     <Overlay {...restProps}>
       <VideoNavbar>
         <NavIcon src={Subtitles} />
@@ -72,7 +71,7 @@ Watch.Video = function WatchVideo({ src, ...restProps }) {
         </IconRoute>
       </VideoNavbar>
       <Inner>
-        <video ref={videoRef} id="netflix-player" autoPlay={true}>
+        <video ref={videoRef} id="netflix-player" autoPlay="true">
           <source src={src} type="video/mp4" />
         </video>
         <Controls>
@@ -81,8 +80,7 @@ Watch.Video = function WatchVideo({ src, ...restProps }) {
           <Icon onClick={() => videoforward()} src={Forward} />
         </Controls>
       </Inner>
-    </Overlay>,
-    document.body
+    </Overlay>
   );
 };
 
