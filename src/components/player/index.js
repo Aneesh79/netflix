@@ -7,11 +7,18 @@ import {
   Overlay,
   Inner,
   Icon,
+  NavIcon,
+  VideoNavbar,
 } from "./styles/player";
 import Pause from "./pause.svg";
 import Play from "./play.svg";
 import Rewind from "./rewind.svg";
 import Forward from "./forward.svg";
+import Close from "./close.svg";
+import HD from "./hd.svg";
+import Fullscreen from "./fullscreen.svg";
+import Subtitles from "./subtitles.svg";
+import Volume from "./volume.svg";
 
 export const PlayerContext = createContext();
 
@@ -31,35 +38,56 @@ Player.Video = function PlayerVideo({ src, ...restProps }) {
 
   let videoPlayer = document.getElementById("netflix-player");
 
-  const videoref = useRef(null);
+  const videoRef = useRef(null);
 
   const videoFunction = () => {
     if (play) {
-      videoref.current.pause();
+      videoRef.current.pause();
       setPlay(false);
     } else {
-      videoref.current.play();
+      videoRef.current.play();
       setPlay(true);
     }
   };
 
   const videoforward = () => {
     videoPlayer.currentTime += 10;
-    videoref.current.play();
+    videoRef.current.play();
     console.log(videoPlayer.currentTime);
   };
 
   const videorewind = () => {
     videoPlayer.currentTime -= 10;
-    videoref.current.play();
+    videoRef.current.play();
     console.log(videoPlayer.currentTime);
+  };
+
+  const toggleFullscreen = () => {
+    if (videoPlayer.requestFullscreen) {
+      videoPlayer.requestFullscreen();
+    } else if (videoPlayer.mozRequestFullScreen) {
+      /* Firefox */
+      videoPlayer.mozRequestFullScreen();
+    } else if (videoPlayer.webkitRequestFullscreen) {
+      /* Chrome, Safari and Opera */
+      videoPlayer.webkitRequestFullscreen();
+    } else if (videoPlayer.msRequestFullscreen) {
+      /* IE/Edge */
+      videoPlayer.msRequestFullscreen();
+    }
   };
 
   return showPlayer
     ? ReactDOM.createPortal(
         <Overlay {...restProps}>
+          <VideoNavbar>
+            <NavIcon src={Subtitles} />
+            <NavIcon src={Volume} />
+            <NavIcon onClick={() => toggleFullscreen()} src={Fullscreen} />
+            <NavIcon onClick={() => setShowPlayer(false)} src={Close} />
+          </VideoNavbar>
           <Inner>
-            <video ref={videoref} id="netflix-player" autoPlay={true}>
+            <video ref={videoRef} id="netflix-player" autoPlay={true}>
               <source src={src} type="video/mp4" />
             </video>
             <Controls>

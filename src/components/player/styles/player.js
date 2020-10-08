@@ -18,6 +18,7 @@ export const Overlay = styled.div`
 export const Inner = styled.div`
   position: relative;
   width: 100%;
+  max-width: 900px;
   margin: auto;
   display: flex;
   align-items: center;
@@ -29,8 +30,27 @@ export const Inner = styled.div`
   }
 `;
 
+export const VideoNavbar = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+`;
+
 export const Controls = styled.div`
   position: absolute;
+`;
+
+export const NavIcon = styled.img`
+  width: 38px;
+  height: 38px;
+  padding: 20px;
+  fill: #cccccc;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
 `;
 
 export const Icon = styled.img`
