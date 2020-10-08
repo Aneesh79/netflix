@@ -20,10 +20,49 @@ export const Inner = styled.div`
   width: 100%;
   max-width: 900px;
   margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   video {
     height: 100%;
     width: 100%;
+  }
+`;
+
+export const VideoNavbar = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+`;
+
+export const Controls = styled.div`
+  position: absolute;
+`;
+
+export const NavIcon = styled.img`
+  width: 38px;
+  height: 38px;
+  padding: 20px;
+  fill: #cccccc;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+`;
+
+export const Icon = styled.img`
+  width: 76px;
+  height: 76px;
+  padding: 50px;
+  fill: #cccccc;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
   }
 `;
 
