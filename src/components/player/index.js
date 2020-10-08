@@ -117,3 +117,9 @@ Player.Button = function PlayerButton({ ...restProps }) {
 };
 
 /* rgba(0,0,0,0.25) */
+
+Player.PlayIcon = function PlayerPlayIcon({ ...restProps }) {
+  const { showPlayer, setShowPlayer } = useContext(PlayerContext);
+
+  return <PlayIcon onClick={() => setShowPlayer((showPlayer) => !showPlayer)} {...restProps} />;
+};

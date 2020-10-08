@@ -66,10 +66,13 @@ export const Entities = styled.div`
 
 export const Meta = styled.div`
   display: none;
-  position: absolute;
-  bottom: 0;
+  position: relative;
+  border: 0;
+  max-width: 285px;
+  height: auto;
   padding: 10px;
-  background-color: #0000008f;
+  margin: 0;
+  background-color: #333;
 `;
 
 export const Image = styled.img`
@@ -116,6 +119,67 @@ export const Item = styled.div`
     @media (max-width: 1000px) {
       margin-right: 30px;
     }
+  }
+`;
+
+export const Controls = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  padding-bottom: 10px;
+`;
+
+export const Left = styled.div`
+  display: flex;
+`;
+
+export const Divide = styled.div`
+  disply: flex;
+  flex-direction: column;
+`;
+
+export const Play = styled.div`
+  color: white;
+`;
+
+export const ProgressBar = styled.progress`
+  -webkit-appearance: none;
+  border: none;
+  appearance: none;
+  width: 90px;
+  height: 6px;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+
+  &::-webkit-progress-value {
+    background-color: #e50914;
+    border-radius: 20px;
+  }
+
+  &::-webkit-progress-bar {
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 20px;
+  }
+
+  &::-moz-progress-bar {
+    background-color: #e50914;
+    border-radius: 20px;
+  }
+`;
+
+export const Icons = styled.div`
+  display: flex;
+`;
+
+export const Icon = styled.img`
+  height: 27px;
+  width: 27px;
+  opacity: 0.8;
+  padding-left: 10px;
+
+  &:hover {
+    opacity: 0.5;
   }
 `;
 

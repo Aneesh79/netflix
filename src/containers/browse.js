@@ -6,6 +6,9 @@ import { FirebaseContext } from "../context/firebase";
 import { Card, Header, Loading, Player } from "../components";
 import * as ROUTES from "../constants/routes";
 import logo from "../logo.svg";
+import play from "../components/card/icons/play-circle.svg";
+import trailer from "../components/card/icons/play-hollow.svg";
+import add from "../components/card/icons/add.svg";
 
 export function BrowseContainer({ slides }) {
   const [category, setCategory] = useState("series");
@@ -84,6 +87,22 @@ export function BrowseContainer({ slides }) {
                 <Card.Item key={item.docId} item={item}>
                   <Card.Image src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`} />
                   <Card.Meta>
+                    <Card.Controls>
+                      <Card.Left>
+                        <Player>
+                          <Player.PlayIcon src={play} alt="play" />
+                          <Player.Video src="/videos/batman.mp4" />
+                        </Player>
+                        <Card.Divide>
+                          <Card.Play>Play</Card.Play>
+                          <Card.ProgressBar value="69" max="100"></Card.ProgressBar>
+                        </Card.Divide>
+                      </Card.Left>
+                      <Card.Icons>
+                        <Card.Icon src={trailer} alt="trailer" />
+                        <Card.Icon src={add} alt="watchlist" />
+                      </Card.Icons>
+                    </Card.Controls>
                     <Card.SubTitle>{item.title}</Card.SubTitle>
                     <Card.Text>{item.description}</Card.Text>
                   </Card.Meta>
