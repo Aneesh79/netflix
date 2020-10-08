@@ -66,13 +66,14 @@ export const Entities = styled.div`
 
 export const Meta = styled.div`
   display: none;
-  position: absolute;
+  position: relative;
+  border: 0;
   width: 100%;
-  max-width: 223.5px;
+  max-width: 305px;
   height: auto;
-  bottom: 0;
-  padding: 10px;
-  background-color: #0000008f;
+  padding: 0;
+  margin: 0;
+  background-color: #333;
 `;
 
 export const Image = styled.img`
@@ -149,7 +150,7 @@ export const ProgressBar = styled.progress`
   appearance: none;
   width: 90px;
   height: 6px;
-  background-color: #333333;
+  background-color: rgba(0, 0, 0, 0.75);
   border-radius: 20px;
 
   &::-webkit-progress-value {
@@ -158,7 +159,7 @@ export const ProgressBar = styled.progress`
   }
 
   &::-webkit-progress-bar {
-    background-color: #333333;
+    background-color: rgba(0, 0, 0, 0.75);
     border-radius: 20px;
   }
 
