@@ -53,7 +53,6 @@ export const PlayIcon = styled.img`
   height: 30px;
   width: 30px;
   padding-right: 10px;
-  opacity: 0.8;
 
   &:hover {
     opacity: 0.5;
