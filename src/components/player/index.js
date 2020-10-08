@@ -1,15 +1,6 @@
 import React, { useState, useRef, useContext, createContext } from "react";
 import ReactDOM from "react-dom";
-import {
-  Container,
-  Controls,
-  Button,
-  Overlay,
-  Inner,
-  Icon,
-  NavIcon,
-  VideoNavbar,
-} from "./styles/player";
+import { Container, Controls, Button, PlayIcon, Overlay, Inner, Icon, NavIcon, VideoNavbar } from "./styles/player";
 import Pause from "./pause.svg";
 import Play from "./play.svg";
 import Rewind from "./rewind.svg";
@@ -92,11 +83,7 @@ Player.Video = function PlayerVideo({ src, ...restProps }) {
             </video>
             <Controls>
               <Icon onClick={() => videorewind()} src={Rewind} />
-              {play ? (
-                <Icon onClick={() => videoFunction()} src={Pause} />
-              ) : (
-                <Icon onClick={() => videoFunction()} src={Play} />
-              )}
+              {play ? <Icon onClick={() => videoFunction()} src={Pause} /> : <Icon onClick={() => videoFunction()} src={Play} />}
               <Icon onClick={() => videoforward()} src={Forward} />
             </Controls>
           </Inner>
@@ -109,11 +96,7 @@ Player.Video = function PlayerVideo({ src, ...restProps }) {
 Player.Button = function PlayerButton({ ...restProps }) {
   const { showPlayer, setShowPlayer } = useContext(PlayerContext);
 
-  return (
-    <Button onClick={() => setShowPlayer((showPlayer) => !showPlayer)}>
-      Play
-    </Button>
-  );
+  return <Button onClick={() => setShowPlayer((showPlayer) => !showPlayer)}>Play</Button>;
 };
 
 /* rgba(0,0,0,0.25) */
