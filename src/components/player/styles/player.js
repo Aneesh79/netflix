@@ -48,3 +48,13 @@ export const Button = styled.button`
     background-color: #ff0a16;
   }
 `;
+
+export const PlayIcon = styled.img`
+  height: 30px;
+  width: 30px;
+  padding-right: 10px;
+
+  &:hover {
+    opacity: 0.5;
+  }
+`;
