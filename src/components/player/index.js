@@ -29,6 +29,8 @@ Player.Video = function PlayerVideo({ src, ...restProps }) {
   const { showPlayer, setShowPlayer } = useContext(PlayerContext);
   const [play, setPlay] = useState(true);
 
+  let videoPlayer = document.getElementById("netflix-player");
+
   const videoref = useRef(null);
 
   const videoFunction = () => {
@@ -41,21 +43,33 @@ Player.Video = function PlayerVideo({ src, ...restProps }) {
     }
   };
 
+  const videoforward = () => {
+    videoPlayer.currentTime += 10;
+    videoref.current.play();
+    console.log(videoPlayer.currentTime);
+  };
+
+  const videorewind = () => {
+    videoPlayer.currentTime -= 10;
+    videoref.current.play();
+    console.log(videoPlayer.currentTime);
+  };
+
   return showPlayer
     ? ReactDOM.createPortal(
         <Overlay {...restProps}>
           <Inner>
-            <video ref={videoref} id="netflix-player" autoplay="true">
+            <video ref={videoref} id="netflix-player" autoPlay={true}>
               <source src={src} type="video/mp4" />
             </video>
             <Controls>
-              <Icon src={Rewind} />
+              <Icon onClick={() => videorewind()} src={Rewind} />
               {play ? (
                 <Icon onClick={() => videoFunction()} src={Pause} />
               ) : (
                 <Icon onClick={() => videoFunction()} src={Play} />
               )}
-              <Icon src={Forward} />
+              <Icon onClick={() => videoforward()} src={Forward} />
             </Controls>
           </Inner>
         </Overlay>,
@@ -73,3 +87,5 @@ Player.Button = function PlayerButton({ ...restProps }) {
     </Button>
   );
 };
+
+/* rgba(0,0,0,0.25) */
