@@ -24,7 +24,7 @@ export default function Watch({ children, ...restProps }) {
 Watch.Video = function WatchVideo({ src, ...restProps }) {
   const [play, setPlay] = useState(true);
 
-  let videoWatch = document.getElementById("netflix-player");
+  const videoWatch = document.getElementById("netflix-player");
 
   const videoRef = useRef(null);
 
@@ -40,14 +40,10 @@ Watch.Video = function WatchVideo({ src, ...restProps }) {
 
   const videoforward = () => {
     videoWatch.currentTime += 10;
-    videoRef.current.play();
-    console.log(videoWatch.currentTime);
   };
 
   const videorewind = () => {
     videoWatch.currentTime -= 10;
-    videoRef.current.play();
-    console.log(videoWatch.currentTime);
   };
 
   const toggleFullscreen = () => {
