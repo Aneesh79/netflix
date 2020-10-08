@@ -1,4 +1,5 @@
 import styled from "styled-components/macro";
+import { Link as ReactRouterLink } from "react-router-dom";
 
 export const Container = styled.div``;
 
@@ -66,11 +67,12 @@ export const Icon = styled.img`
   }
 `;
 
-export const Button = styled.button`
+export const Button = styled(ReactRouterLink)`
   background-color: #e50914;
   border-color: #ff0a10;
   width: 114px;
   height: 45px;
+  text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
   color: white;
@@ -87,6 +89,8 @@ export const Button = styled.button`
     background-color: #ff0a16;
   }
 `;
+
+export const IconRoute = styled(ReactRouterLink)``;
 
 export const PlayIcon = styled.img`
   height: 30px;
