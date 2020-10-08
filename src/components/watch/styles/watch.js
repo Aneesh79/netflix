@@ -41,23 +41,22 @@ export const Controls = styled.div`
   position: absolute;
 `;
 
+export const IconRoute = styled(ReactRouterLink)``;
+
+export const PlayIcon = styled.img`
+  height: 30px;
+  width: 30px;
+  padding-right: 10px;
+
+  &:hover {
+    opacity: 0.5;
+  }
+`;
+
 export const NavIcon = styled.img`
   width: 38px;
   height: 38px;
   padding: 20px;
-  fill: #cccccc;
-  opacity: 0.5;
-
-  &:hover {
-    opacity: 1;
-    cursor: pointer;
-  }
-`;
-
-export const Icon = styled.img`
-  width: 76px;
-  height: 76px;
-  padding: 50px;
   fill: #cccccc;
   opacity: 0.5;
 
@@ -90,14 +89,15 @@ export const Button = styled(ReactRouterLink)`
   }
 `;
 
-export const IconRoute = styled(ReactRouterLink)``;
-
-export const PlayIcon = styled.img`
-  height: 30px;
-  width: 30px;
-  padding-right: 10px;
+export const Icon = styled.img`
+  width: 76px;
+  height: 76px;
+  padding: 50px;
+  fill: #cccccc;
+  opacity: 0.5;
 
   &:hover {
-    opacity: 0.5;
+    opacity: 1;
+    cursor: pointer;
   }
 `;
