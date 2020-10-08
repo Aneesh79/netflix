@@ -1,6 +1,6 @@
 import React, { useState, useContext, createContext } from "react";
 import ReactDOM from "react-dom";
-import { Container, Button, Overlay, Inner } from "./styles/player";
+import { Container, Button, PlayIcon, Overlay, Inner } from "./styles/player";
 
 export const PlayerContext = createContext();
 
@@ -35,4 +35,10 @@ Player.Button = function PlayerButton({ ...restProps }) {
   const { showPlayer, setShowPlayer } = useContext(PlayerContext);
 
   return <Button onClick={() => setShowPlayer((showPlayer) => !showPlayer)}>Play</Button>;
+};
+
+Player.PlayIcon = function PlayerPlayIcon({ ...restProps }) {
+  const { showPlayer, setShowPlayer } = useContext(PlayerContext);
+
+  return <PlayIcon onClick={() => setShowPlayer((showPlayer) => !showPlayer)} {...restProps} />;
 };

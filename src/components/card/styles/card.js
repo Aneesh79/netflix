@@ -134,17 +134,6 @@ export const Left = styled.div`
   display: flex;
 `;
 
-export const PlayIcon = styled.img`
-  height: 30px;
-  width: 30px;
-  padding-right: 10px;
-  opacity: 0.8;
-
-  &:hover {
-    opacity: 0.5;
-  }
-`;
-
 export const Divide = styled.div`
   disply: flex;
   flex-direction: column;

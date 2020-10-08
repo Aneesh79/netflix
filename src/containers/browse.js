@@ -89,7 +89,10 @@ export function BrowseContainer({ slides }) {
                   <Card.Meta>
                     <Card.Controls>
                       <Card.Left>
-                        <Card.PlayIcon src={play} alt="play" />
+                        <Player>
+                          <Player.PlayIcon src={play} alt="play" />
+                          <Player.Video src="/videos/bunny.mp4" />
+                        </Player>
                         <Card.Divide>
                           <Card.Play>Play</Card.Play>
                           <Card.ProgressBar value="69" max="100"></Card.ProgressBar>
