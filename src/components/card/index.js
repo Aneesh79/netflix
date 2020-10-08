@@ -1,6 +1,6 @@
 import React, { useState, useContext, createContext } from "react";
 
-import { Container, Group, Title, SubTitle, Text, Feature, FeatureTitle, FeatureText, FeatureClose, Maturity, Content, Meta, Entities, Item, Image } from "./styles/card";
+import { Container, Group, Title, SubTitle, Text, Feature, FeatureTitle, FeatureText, FeatureClose, Maturity, Content, Meta, Entities, Item, Controls, Left, PlayIcon, Divide, Play, ProgressBar, Icons, Icon, Image } from "./styles/card";
 
 export const FeatureContext = createContext();
 
@@ -74,6 +74,38 @@ Card.Item = function CardItem({ item, children, ...restProps }) {
       {children}
     </Item>
   );
+};
+
+Card.Controls = function CardControls({ children, ...restProps }) {
+  return <Controls {...restProps}>{children}</Controls>;
+};
+
+Card.Left = function CardLeft({ children, ...restProps }) {
+  return <Left {...restProps}>{children}</Left>;
+};
+
+Card.PlayIcon = function CardPlayIcon({ ...restProps }) {
+  return <PlayIcon {...restProps} />;
+};
+
+Card.Divide = function CardDivide({ children, ...restProps }) {
+  return <Divide {...restProps}>{children}</Divide>;
+};
+
+Card.Play = function CardPlay({ children, ...restProps }) {
+  return <Play {...restProps}>{children}</Play>;
+};
+
+Card.ProgressBar = function CardProgressBar({ children, ...restProps }) {
+  return <ProgressBar {...restProps}>{children}</ProgressBar>;
+};
+
+Card.Icons = function CardIcons({ children, ...restProps }) {
+  return <Icons {...restProps}>{children}</Icons>;
+};
+
+Card.Icon = function CardIcon({ ...restProps }) {
+  return <Icon {...restProps} />;
 };
 
 Card.Image = function CardImage({ ...restProps }) {
