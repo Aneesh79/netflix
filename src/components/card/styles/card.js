@@ -68,10 +68,9 @@ export const Meta = styled.div`
   display: none;
   position: relative;
   border: 0;
-  width: 100%;
-  max-width: 305px;
+  max-width: 285px;
   height: auto;
-  padding: 0;
+  padding: 10px;
   margin: 0;
   background-color: #333;
 `;
