@@ -19,7 +19,7 @@ export const Overlay = styled.div`
 export const Inner = styled.div`
   position: relative;
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
   display: flex;
   align-items: center;
