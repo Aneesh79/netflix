@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@reduxjs/toolkit": "^1.4.0",
     "firebase": "^7.21.1",
     "fuse.js": "^6.4.1",
     "normalize.css": "^8.0.1",
