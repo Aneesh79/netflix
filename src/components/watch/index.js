@@ -1,5 +1,19 @@
 import React, { useState, useRef, createContext } from "react";
-import { Container, Controls, Overlay, Inner, Icon, NavIcon, VideoNavbar, Button, IconRoute, PlayIcon } from "./styles/watch";
+import {
+  Container,
+  Controls,
+  Overlay,
+  Inner,
+  Icon,
+  NavIcon,
+  LeftPane,
+  VideoNavbar,
+  VideoNavbarLeftPane,
+  VideoNavbarRightPane,
+  Button,
+  IconRoute,
+  PlayIcon,
+} from "./styles/watch";
 import Pause from "./icons/pause.svg";
 import Play from "./icons/play.svg";
 import Rewind from "./icons/rewind.svg";
@@ -63,20 +77,30 @@ Watch.Video = function WatchVideo({ src, ...restProps }) {
   return (
     <Overlay {...restProps}>
       <VideoNavbar>
-        <NavIcon src={Subtitles} />
-        <NavIcon src={Volume} />
-        <NavIcon onClick={() => toggleFullscreen()} src={Fullscreen} />
-        <IconRoute to="/browse">
-          <NavIcon src={Close} />
-        </IconRoute>
+        <VideoNavbarLeftPane>
+          <LeftPane>X-Ray</LeftPane>
+          <LeftPane>View All</LeftPane>
+        </VideoNavbarLeftPane>
+        <VideoNavbarRightPane>
+          <NavIcon src={Subtitles} />
+          <NavIcon src={Volume} />
+          <NavIcon onClick={() => toggleFullscreen()} src={Fullscreen} />
+          <IconRoute to="/browse">
+            <NavIcon src={Close} />
+          </IconRoute>
+        </VideoNavbarRightPane>
       </VideoNavbar>
       <Inner>
-        <video ref={videoRef} id="netflix-player" autoPlay="true">
+        <video ref={videoRef} id="netflix-player">
           <source src={src} type="video/mp4" />
         </video>
         <Controls>
           <Icon onClick={() => videorewind()} src={Rewind} />
-          {play ? <Icon onClick={() => videoFunction()} src={Pause} /> : <Icon onClick={() => videoFunction()} src={Play} />}
+          {play ? (
+            <Icon onClick={() => videoFunction()} src={Pause} />
+          ) : (
+            <Icon onClick={() => videoFunction()} src={Play} />
+          )}
           <Icon onClick={() => videoforward()} src={Forward} />
         </Controls>
       </Inner>
