@@ -1,6 +1,4 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { setUrl } from "../redux/actions";
 import Fuse from "fuse.js";
 import { SelectProfileContainer } from "./profiles";
 import { FooterContainer } from "./footer";
@@ -18,9 +16,6 @@ export function BrowseContainer({ slides }) {
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
   const [slideRows, setSlideRows] = useState([]);
-  const [trailer, setTrailer] = useState("");
-
-  const dispatch = useDispatch();
 
   const { firebase } = useContext(FirebaseContext);
   const user = firebase.auth().currentUser || {};
@@ -45,10 +40,6 @@ export function BrowseContainer({ slides }) {
       setSlideRows(slides[category]);
     }
   }, [searchTerm]);
-
-  function sendUrl(url) {
-    dispatch(setUrl(url));
-  }
 
   return profile.displayName ? (
     <>
@@ -95,13 +86,12 @@ export function BrowseContainer({ slides }) {
               {slideItem.data.map((item) => (
                 <Card.Item key={item.docId} item={item}>
                   <Card.Image src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`} />
-                  {setTrailer(item.trailer)}
                   <Card.Meta>
                     <Card.Controls>
                       <Card.Left>
                         <Watch>
                           <Watch.IconRoute to="/watch">
-                            <Watch.PlayIcon src={play} alt="play" onClick={() => sendUrl(trailer)} />
+                            <Watch.PlayIcon src={play} alt="play" />
                           </Watch.IconRoute>
                         </Watch>
                         <Card.Divide>
@@ -122,9 +112,7 @@ export function BrowseContainer({ slides }) {
             </Card.Entities>
             <Card.Feature category={category}>
               <Watch>
-                <Watch.Button onClick={() => sendUrl(trailer)} to="/watch">
-                  Play
-                </Watch.Button>
+                <Watch.Button to="/watch">Play</Watch.Button>
               </Watch>
             </Card.Feature>
           </Card>
