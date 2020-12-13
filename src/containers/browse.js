@@ -3,7 +3,7 @@ import Fuse from "fuse.js";
 import { SelectProfileContainer } from "./profiles";
 import { FooterContainer } from "./footer";
 import { FirebaseContext } from "../context/firebase";
-import { Card, Header, Loading, Watch } from "../components";
+import { Card, Header, Loading, Player } from "../components";
 import * as ROUTES from "../constants/routes";
 import logo from "../logo.svg";
 import play from "../components/card/icons/play-circle.svg";
@@ -89,11 +89,10 @@ export function BrowseContainer({ slides }) {
                   <Card.Meta>
                     <Card.Controls>
                       <Card.Left>
-                        <Watch>
-                          <Watch.IconRoute to="/watch">
-                            <Watch.PlayIcon src={play} alt="play" />
-                          </Watch.IconRoute>
-                        </Watch>
+                        <Player>
+                          <Player.PlayIcon src={play} alt="play" />
+                          <Player.Video src="/videos/batman.mp4" />
+                        </Player>
                         <Card.Divide>
                           <Card.Play>Play</Card.Play>
                           <Card.ProgressBar value="69" max="100"></Card.ProgressBar>
@@ -111,9 +110,10 @@ export function BrowseContainer({ slides }) {
               ))}
             </Card.Entities>
             <Card.Feature category={category}>
-              <Watch>
-                <Watch.Button to="/watch">Play</Watch.Button>
-              </Watch>
+              <Player>
+                <Player.Button />
+                <Player.Video src="/videos/batman.mp4" />
+              </Player>
             </Card.Feature>
           </Card>
         ))}
