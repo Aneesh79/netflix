@@ -1,4 +1,5 @@
 import styled from "styled-components/macro";
+import { Link as ReactRouterLink } from "react-router-dom";
 
 export const Container = styled.div``;
 
@@ -32,12 +33,45 @@ export const Inner = styled.div`
 
 export const VideoNavbar = styled.div`
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+`;
+
+export const VideoNavbarRightPane = styled.div`
+  margin-right: 15px;
+`;
+
+export const VideoNavbarLeftPane = styled.div`
+  margin-left: 7.5px;
 `;
 
 export const Controls = styled.div`
   position: absolute;
+`;
+
+export const IconRoute = styled(ReactRouterLink)``;
+
+export const PlayIcon = styled.img`
+  height: 30px;
+  width: 30px;
+  padding-right: 10px;
+
+  &:hover {
+    opacity: 0.5;
+  }
+`;
+
+export const LeftPane = styled.h2`
+  display: inline-block;
+  padding: 10px;
+  color: #cccccc;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
 `;
 
 export const NavIcon = styled.img`
@@ -53,24 +87,12 @@ export const NavIcon = styled.img`
   }
 `;
 
-export const Icon = styled.img`
-  width: 76px;
-  height: 76px;
-  padding: 50px;
-  fill: #cccccc;
-  opacity: 0.5;
-
-  &:hover {
-    opacity: 1;
-    cursor: pointer;
-  }
-`;
-
-export const Button = styled.button`
+export const Button = styled(ReactRouterLink)`
   background-color: #e50914;
   border-color: #ff0a10;
   width: 114px;
   height: 45px;
+  text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
   color: white;
@@ -88,12 +110,15 @@ export const Button = styled.button`
   }
 `;
 
-export const PlayIcon = styled.img`
-  height: 30px;
-  width: 30px;
-  padding-right: 10px;
+export const Icon = styled.img`
+  width: 76px;
+  height: 76px;
+  padding: 50px;
+  fill: #cccccc;
+  opacity: 0.5;
 
   &:hover {
-    opacity: 0.5;
+    opacity: 1;
+    cursor: pointer;
   }
 `;
