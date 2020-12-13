@@ -3,6 +3,7 @@ import Fuse from "fuse.js";
 import { SelectProfileContainer } from "./profiles";
 import { FooterContainer } from "./footer";
 import { FirebaseContext } from "../context/firebase";
+import { TrailerContext } from "../context/trailer";
 import { Card, Header, Loading, Watch } from "../components";
 import * as ROUTES from "../constants/routes";
 import logo from "../logo.svg";
@@ -84,30 +85,32 @@ export function BrowseContainer({ slides }) {
             <Card.Title>{slideItem.title}</Card.Title>
             <Card.Entities>
               {slideItem.data.map((item) => (
-                <Card.Item key={item.docId} item={item}>
-                  <Card.Image src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`} />
-                  <Card.Meta>
-                    <Card.Controls>
-                      <Card.Left>
-                        <Watch>
-                          <Watch.IconRoute to="/watch">
-                            <Watch.PlayIcon src={play} alt="play" />
-                          </Watch.IconRoute>
-                        </Watch>
-                        <Card.Divide>
-                          <Card.Play>Play</Card.Play>
-                          <Card.ProgressBar value="69" max="100"></Card.ProgressBar>
-                        </Card.Divide>
-                      </Card.Left>
-                      <Card.Icons>
-                        <Card.Icon src={trailer} alt="trailer" />
-                        <Card.Icon src={add} alt="watchlist" />
-                      </Card.Icons>
-                    </Card.Controls>
-                    <Card.SubTitle>{item.title}</Card.SubTitle>
-                    <Card.Text>{item.description}</Card.Text>
-                  </Card.Meta>
-                </Card.Item>
+                <TrailerContext.Provider value={item.trailer}>
+                  <Card.Item key={item.docId} item={item}>
+                    <Card.Image src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`} />
+                    <Card.Meta>
+                      <Card.Controls>
+                        <Card.Left>
+                          <Watch>
+                            <Watch.IconRoute to="/watch">
+                              <Watch.PlayIcon src={play} alt="play" />
+                            </Watch.IconRoute>
+                          </Watch>
+                          <Card.Divide>
+                            <Card.Play>Play</Card.Play>
+                            <Card.ProgressBar value="69" max="100"></Card.ProgressBar>
+                          </Card.Divide>
+                        </Card.Left>
+                        <Card.Icons>
+                          <Card.Icon src={trailer} alt="trailer" />
+                          <Card.Icon src={add} alt="watchlist" />
+                        </Card.Icons>
+                      </Card.Controls>
+                      <Card.SubTitle>{item.title}</Card.SubTitle>
+                      <Card.Text>{item.description}</Card.Text>
+                    </Card.Meta>
+                  </Card.Item>
+                </TrailerContext.Provider>
               ))}
             </Card.Entities>
             <Card.Feature category={category}>
